@@ -35,6 +35,14 @@ O projeto será iniciado em **http://localhost:3000/**
 
 ---
 
+### 🔑 Credenciais de Teste
+Para acessar a aplicação, utilize as seguintes credenciais de teste:
+
+```bash
+📝 Usuário: admin  
+🔒 Senha: admin123
+```
+
 ## 🔒 **Autenticação (JWT)**
 - O usuário faz login na tela `/login`.  
 - O backend retorna um **token JWT**, que é salvo no **localStorage**.  
