@@ -15,24 +15,19 @@ Este é o **frontend** de um sistema de gerenciamento de estudantes, desenvolvid
 
 ## ⚙️ **Instalação e Execução**  
 
-### 1️⃣ Clonar o repositório  
-```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-```
-
-### 2️⃣ Instalar as dependências  
+### 1️⃣ Instalar as dependências  
+Navegue até a pasta FrontEndUBC/student-app e execute o comando:
 ```bash
 npm install
 ```
 
-### 3️⃣ Definir a URL da API  
-No arquivo **`src/services/api.js`**, atualize a URL do backend caso necessário:  
+### 2️⃣ Definir a URL da API  
+No arquivo **`src/.env`**, atualize a URL do backend caso necessário:  
 ```javascript
 const API_URL = "https://localhost:7090/api";
 ```
 
-### 4️⃣ Rodar o projeto  
+### 3️⃣ Rodar o projeto  
 ```bash
 npm start
 ```
