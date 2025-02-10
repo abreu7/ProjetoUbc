@@ -106,6 +106,7 @@ const StudentList = ({ onEdit }) => {
 
   const handleEditInputChange = (e) => {
     const { name, value } = e.target;
+
     setStudentToEdit(prev => ({
       ...prev,
       [name]: value
@@ -114,6 +115,23 @@ const StudentList = ({ onEdit }) => {
 
   // Handler para salvar as alterações do estudante
   const handleEditSave = async () => {
+    
+    console.log(studentToEdit);
+    if (!studentToEdit.nome || 
+      !studentToEdit.idade || 
+      !studentToEdit.serie || 
+      !studentToEdit.notaMedia || 
+      !studentToEdit.endereco || 
+      !studentToEdit.dataNascimento) {
+      showSnackbar('Todos os campos obrigatórios devem ser preenchidos', 'error');
+      return;
+    }
+
+    if (!Number.isInteger(Number(studentToEdit.serie)) || !Number.isInteger(Number(studentToEdit.idade))) {
+      showSnackbar('A série e a idade devem ser um número inteiro', 'error');
+      return;
+    }
+
     try {
       await updateStudent(studentToEdit);
       await loadStudents(page, rowsPerPage);
@@ -147,6 +165,22 @@ const StudentList = ({ onEdit }) => {
   };
 
   const handleAddStudent = async () => {
+    
+    if (!newStudent.nome || 
+        !newStudent.idade || 
+        !newStudent.serie || 
+        !newStudent.notaMedia || 
+        !newStudent.endereco || 
+        !newStudent.dataNascimento) {
+      showSnackbar('Todos os campos obrigatórios devem ser preenchidos', 'error');
+      return;
+    }
+
+    if (!Number.isInteger(Number(newStudent.serie)) || !Number.isInteger(Number(newStudent.idade))) {
+      showSnackbar('A série e a idade devem ser um número inteiro', 'error');
+      return;
+    }
+
     try {
       await addStudent(newStudent);
       await loadStudents();
@@ -160,6 +194,7 @@ const StudentList = ({ onEdit }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
     setNewStudent(prev => ({
       ...prev,
       [name]: value
@@ -359,6 +394,7 @@ const StudentList = ({ onEdit }) => {
               <TextField
                 name="serie"
                 label="Série"
+                type="number"
                 value={newStudent.serie}
                 onChange={handleInputChange}
                 fullWidth
@@ -569,6 +605,7 @@ const StudentList = ({ onEdit }) => {
               <TextField
                 name="serie"
                 label="Série"
+                type="number"
                 value={studentToEdit?.serie || ''}
                 onChange={handleEditInputChange}
                 fullWidth
