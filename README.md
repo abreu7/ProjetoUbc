@@ -48,7 +48,7 @@ Se tudo estiver correto, a API estará rodando em:
 
 ---
 
-### **2️⃣ Configurar conexão com o Banco**
+### **4️⃣ Configurar conexão com o Banco**
 Para facilitar a interação com o banco, foi criado um repositório para ser utilizado.
 Este repositório contém uma **imagem Docker** do **Oracle Database**, já configurada com tabelas e dados iniciais de estudantes.  
 
@@ -64,6 +64,16 @@ docker pull urias967/ubc-oracle-db:v2
 docker run -d --name oracle-db -p 1521:1521 urias967/ubc-oracle-db:v2
 ```
 Isso inicia o banco e o deixa pronto para conexões.  
+
+---
+
+### 🔑 Credenciais de Teste
+Para acessar a aplicação, utilize as seguintes credenciais de teste:
+
+```bash
+📝 Usuário: admin  
+🔒 Senha: admin123
+```
 
 ---
 
